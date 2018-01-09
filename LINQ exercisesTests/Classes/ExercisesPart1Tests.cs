@@ -16,8 +16,8 @@ namespace LINQ_exercises.Classes.Tests
         {
             ExercisesPart1 exercises = new ExercisesPart1();
 
-            int[] inputArray = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-            int[] expectedResult = {0, 2, 4, 6, 8};
+            int[] inputArray = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            int[] expectedResult = { 0, 2, 4, 6, 8 };
 
             int[] actualResult = exercises.Ex1(inputArray);
 
@@ -35,6 +35,45 @@ namespace LINQ_exercises.Classes.Tests
             int[] actualResult = exercises.Ex1(inputArray);
 
             Assert.IsFalse(expectedResult.SequenceEqual(actualResult));
+        }
+
+        [TestMethod()]
+        public void Ex2Test1()
+        {
+            ExercisesPart1 exercises = new ExercisesPart1();
+
+            int[] inputArray = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            int[] expectedResult = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            int[] actualResult = exercises.Ex2(inputArray);
+
+            Assert.IsTrue(expectedResult.SequenceEqual(actualResult));
+        }
+
+        [TestMethod()]
+        public void Ex2Test2()
+        {
+            ExercisesPart1 exercises = new ExercisesPart1();
+
+            int[] inputArray = { 0, -1, -2, -3, -4, -5, -6, -7, -8, -9 };
+            int[] expectedResult = {};
+
+            int[] actualResult = exercises.Ex2(inputArray);
+
+            Assert.IsTrue(expectedResult.SequenceEqual(actualResult));
+        }
+
+        [TestMethod()]
+        public void Ex2MaxValueTest()
+        {
+            ExercisesPart1 exercises = new ExercisesPart1();
+
+            int[] inputArray = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            int[] expectedResult = { 1, 2, 3, 4, 5 };
+
+            int[] actualResult = exercises.Ex2(inputArray, 5);
+
+            Assert.IsTrue(expectedResult.SequenceEqual(actualResult));
         }
     }
 }

@@ -24,6 +24,36 @@ namespace LINQ_exercises.Classes
             return result.ToArray();
         }
 
+        public int[] Ex2(int[] inputArray)
+        {
+            //Write a program in C# Sharp to find the +ve numbers from a list of numbers using two where conditions in LINQ Query.
+            if (inputArray.Length == 0)
+                return null;
+
+            var querry =
+                from value in inputArray
+                where value > 0
+                select value;
+                
+
+            return querry.ToArray();
+        }
+
+        public int[] Ex2(int[] inputArray, int maxValue)
+        {
+            //Write a program in C# Sharp to find the +ve numbers from a list of numbers using two where conditions in LINQ Query.
+            if (inputArray.Length == 0)
+                return null;
+
+            var querry =
+                from value in inputArray
+                where value > 0
+                where value <= maxValue
+                select value;
+
+
+            return querry.ToArray();
+        }
 
     }
 }
