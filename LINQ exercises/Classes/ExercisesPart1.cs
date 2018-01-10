@@ -30,7 +30,7 @@ namespace LINQ_exercises.Classes
                 from value in inputArray
                 where value > 0
                 select value;
-                
+
 
             return querry.ToArray();
         }
@@ -56,7 +56,7 @@ namespace LINQ_exercises.Classes
             var querry =
                 from value in inputArray
                 let squareValue = value * value
-                select new {value, squareValue};
+                select new { value, squareValue };
 
             DoubleInteger[] resultArray = new DoubleInteger[querry.Count()];
 
@@ -107,6 +107,23 @@ namespace LINQ_exercises.Classes
             }
 
             return resultDictionary;
+        }
+
+        public String Ex6(int day)
+        {
+            //Write a program in C# Sharp to display the name of the days of a week.
+
+            string[] daysNames = { "Monday", "Thuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
+            var querry =
+                from dayName in daysNames
+                select dayName;
+
+            if (day < 0)
+            {
+                return querry.ToArray()[day % 7 + 7];
+            }
+            return querry.ToArray()[day % 7];
         }
     }
 }

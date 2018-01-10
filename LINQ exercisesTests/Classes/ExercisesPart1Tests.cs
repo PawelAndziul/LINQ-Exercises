@@ -134,5 +134,47 @@ namespace LINQ_exercises.Classes.Tests
 
             Assert.IsTrue(expectedResult.SequenceEqual(actualResult));
         }
+
+        [TestMethod()]
+        public void Ex6Test()
+        {
+            int dayOfTheWeek = 1;
+            string expectedResult = "Thuesday";
+
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            string acutalResult = exercises.Ex6(dayOfTheWeek);
+
+            Assert.AreEqual(acutalResult, expectedResult);
+
+        }
+
+        [TestMethod()]
+        public void Ex6Test_OverSevenDays()
+        {
+            int dayOfTheWeek = 11;
+            string expectedResult = "Friday";
+
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            string acutalResult = exercises.Ex6(dayOfTheWeek);
+
+            Assert.AreEqual(acutalResult, expectedResult);
+
+        }
+
+        [TestMethod()]
+        public void Ex6Test_LessThanADay()
+        {
+            int dayOfTheWeek = -1;
+            string expectedResult = "Sunday";
+
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            string acutalResult = exercises.Ex6(dayOfTheWeek);
+
+            Assert.AreEqual(acutalResult, expectedResult);
+
+        }
     }
 }
