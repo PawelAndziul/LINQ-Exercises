@@ -173,5 +173,16 @@ namespace LINQ_exercises.Classes
 
             return query.ToArray();
         }
+
+        public int[] Ex10(List<int> inputList, int memberValue)
+        {
+            // Write a program in C# Sharp to Accept the members of a list through the keyboard and display the members more than a specific value. 
+            var query =
+                from value in inputList
+                where value > memberValue
+                select value;
+
+            return query.ToArray();
+        }
     }
 }

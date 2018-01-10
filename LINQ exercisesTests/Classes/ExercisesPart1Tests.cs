@@ -226,13 +226,35 @@ namespace LINQ_exercises.Classes.Tests
         [TestMethod()]
         public void Ex9Test()
         {
-            int[] inputArray = {1, 2, 3, 80, 81, 82, -1};
-            int[] expectedResults = {81, 82};
+            int[] inputArray = { 1, 2, 3, 80, 81, 82, -1 };
+            int[] expectedResults = { 81, 82 };
 
             ExercisesPart1 exercises = new ExercisesPart1();
             int[] actualResults = exercises.Ex9(inputArray);
 
             Assert.IsTrue(actualResults.SequenceEqual(expectedResults));
+        }
+
+        [TestMethod()]
+        public void Ex10Test()
+        {
+            List<int> inputList = new List<int>
+            {
+                10,
+                20,
+                30,
+                40,
+                50
+            };
+
+            int memberValue = 30;
+            int[] expectedResult = { 40, 50 };
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            int[] actualResult = exercises.Ex10(inputList, memberValue);
+
+            Assert.IsTrue(actualResult.SequenceEqual(expectedResult));
+
         }
     }
 }
