@@ -162,5 +162,16 @@ namespace LINQ_exercises.Classes
 
             return query.ToArray();
         }
+
+        public int[] Ex9(int[] inputArray)
+        {
+            // Write a program in C# Sharp to create a list of numbers and display the numbers greater than 80 as output.
+            var query =
+                from value in inputArray
+                where value > 80
+                select value;
+
+            return query.ToArray();
+        }
     }
 }

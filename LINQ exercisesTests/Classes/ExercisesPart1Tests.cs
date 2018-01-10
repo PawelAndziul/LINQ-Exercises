@@ -222,5 +222,17 @@ namespace LINQ_exercises.Classes.Tests
 
             Assert.IsTrue(actualResult.SequenceEqual(expectedResult));
         }
+
+        [TestMethod()]
+        public void Ex9Test()
+        {
+            int[] inputArray = {1, 2, 3, 80, 81, 82, -1};
+            int[] expectedResults = {81, 82};
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            int[] actualResults = exercises.Ex9(inputArray);
+
+            Assert.IsTrue(actualResults.SequenceEqual(expectedResults));
+        }
     }
 }
