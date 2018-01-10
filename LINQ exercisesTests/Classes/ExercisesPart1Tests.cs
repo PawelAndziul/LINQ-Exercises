@@ -269,5 +269,17 @@ namespace LINQ_exercises.Classes.Tests
 
             Assert.IsTrue(actualResults.SequenceEqual(expectedResults));
         }
+
+        [TestMethod()]
+        public void Ex12Test()
+        {
+            string inputString = "This IS test STRING";
+            string[] expectedResults = {"IS", "STRING"};
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            string[] actualResults = exercises.Ex12(inputString);
+
+            Assert.IsTrue(actualResults.SequenceEqual(expectedResults));
+        }
     }
 }

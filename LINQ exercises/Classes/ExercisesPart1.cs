@@ -200,5 +200,19 @@ namespace LINQ_exercises.Classes
 
             return query.ToArray();
         }
+
+        public string[] Ex12(string inputString)
+        {
+            // Write a program in C# Sharp to find the uppercase words in a string. 
+
+            string[] inputWords = inputString.Split(' ');
+
+            var query =
+                from word in inputWords
+                where word.Equals(word.ToUpper())
+                select word;
+
+            return query.ToArray();
+        }
     }
 }
