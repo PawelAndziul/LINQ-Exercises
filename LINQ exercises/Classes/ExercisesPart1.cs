@@ -125,5 +125,28 @@ namespace LINQ_exercises.Classes
             }
             return querry.ToArray()[day % 7];
         }
+
+        public TripleInteger[] Ex7(int[] inputArray)
+        {
+            var querry =
+                from value in inputArray
+                group value by value into frequency
+                select frequency;
+
+            TripleInteger[] resultArray = new TripleInteger[querry.Count()];
+
+            int counter = 0;
+            foreach (var querryResult in querry)
+            {
+                resultArray[counter] = new TripleInteger(
+                    querryResult.Key,
+                    querryResult.Key * querryResult.Count(),
+                    querryResult.Count()
+                );
+                counter++;
+            }
+
+            return resultArray;
+        }
     }
 }

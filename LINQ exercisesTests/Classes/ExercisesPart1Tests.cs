@@ -176,5 +176,25 @@ namespace LINQ_exercises.Classes.Tests
             Assert.AreEqual(acutalResult, expectedResult);
 
         }
+
+        [TestMethod()]
+        public void Ex7Test()
+        {
+            int[] inputArray = { 1, 2, 2 };
+
+            TripleInteger[] expectedResult = new TripleInteger[2];
+            expectedResult[0] = new TripleInteger(1,1,1);
+            expectedResult[1] = new TripleInteger(2,4,2);
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            TripleInteger[] actualResult = exercises.Ex7(inputArray);
+
+            for (int i = 0; i < 2; i++)
+            {
+                Assert.AreEqual(actualResult[i].FirstValue, expectedResult[i].FirstValue);
+                Assert.AreEqual(actualResult[i].SecondValue, expectedResult[i].SecondValue);
+                Assert.AreEqual(actualResult[i].ThirdValue, expectedResult[i].ThirdValue);
+            }
+        }
     }
 }

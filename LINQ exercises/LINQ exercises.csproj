@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Classes\ExercisesPart1.cs" />
     <Compile Include="Models\DoubleInteger.cs" />
+    <Compile Include="Models\TripleInteger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
