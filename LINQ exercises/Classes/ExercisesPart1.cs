@@ -26,44 +26,44 @@ namespace LINQ_exercises.Classes
         {
             //Write a program in C# Sharp to find the +ve numbers from a list of numbers using two where conditions in LINQ Query.
 
-            var querry =
+            var quert =
                 from value in inputArray
                 where value > 0
                 select value;
 
 
-            return querry.ToArray();
+            return quert.ToArray();
         }
 
         public int[] Ex2(int[] inputArray, int maxValue)
         {
             //Write a program in C# Sharp to find the +ve numbers from a list of numbers using two where conditions in LINQ Query.
 
-            var querry =
+            var quert =
                 from value in inputArray
                 where value > 0
                 where value <= maxValue
                 select value;
 
 
-            return querry.ToArray();
+            return quert.ToArray();
         }
 
         public DoubleInteger[] Ex3(int[] inputArray)
         {
             // Write a program in C# Sharp to find the number of an array and the square of each number.
 
-            var querry =
+            var quert =
                 from value in inputArray
                 let squareValue = value * value
                 select new { value, squareValue };
 
-            DoubleInteger[] resultArray = new DoubleInteger[querry.Count()];
+            DoubleInteger[] resultArray = new DoubleInteger[quert.Count()];
 
             int counter = 0;
-            foreach (var querryResult in querry)
+            foreach (var quertResult in quert)
             {
-                resultArray[counter] = new DoubleInteger(querryResult.value, querryResult.squareValue);
+                resultArray[counter] = new DoubleInteger(quertResult.value, quertResult.squareValue);
                 counter++;
             }
 
@@ -74,17 +74,17 @@ namespace LINQ_exercises.Classes
         {
             //Write a program in C# Sharp to display the number and frequency of number from giving array.
 
-            var querry =
+            var quert =
                 from value in inputArray
                 group value by value into count
                 select count;
 
-            DoubleInteger[] resultArray = new DoubleInteger[querry.Count()];
+            DoubleInteger[] resultArray = new DoubleInteger[quert.Count()];
             int counter = 0;
 
-            foreach (var querryResult in querry)
+            foreach (var quertResult in quert)
             {
-                resultArray[counter] = new DoubleInteger(querryResult.Key, querryResult.Count());
+                resultArray[counter] = new DoubleInteger(quertResult.Key, quertResult.Count());
                 counter++;
             }
 
@@ -95,15 +95,15 @@ namespace LINQ_exercises.Classes
         {
             // Write a program in C# Sharp to display the characters and frequency of character from giving string.
 
-            var querry =
+            var quert =
                 from character in inputString
                 group character by character into count
                 select count;
 
             Dictionary<String, int> resultDictionary = new Dictionary<string, int>();
-            foreach (var querryResult in querry)
+            foreach (var quertResult in quert)
             {
-                resultDictionary.Add(querryResult.Key.ToString(), querryResult.Count());
+                resultDictionary.Add(quertResult.Key.ToString(), quertResult.Count());
             }
 
             return resultDictionary;
@@ -115,33 +115,33 @@ namespace LINQ_exercises.Classes
 
             string[] daysNames = { "Monday", "Thuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
-            var querry =
+            var quert =
                 from dayName in daysNames
                 select dayName;
 
             if (day < 0)
             {
-                return querry.ToArray()[day % 7 + 7];
+                return quert.ToArray()[day % 7 + 7];
             }
-            return querry.ToArray()[day % 7];
+            return quert.ToArray()[day % 7];
         }
 
         public TripleInteger[] Ex7(int[] inputArray)
         {
-            var querry =
+            var quert =
                 from value in inputArray
                 group value by value into frequency
                 select frequency;
 
-            TripleInteger[] resultArray = new TripleInteger[querry.Count()];
+            TripleInteger[] resultArray = new TripleInteger[quert.Count()];
 
             int counter = 0;
-            foreach (var querryResult in querry)
+            foreach (var quertResult in quert)
             {
                 resultArray[counter] = new TripleInteger(
-                    querryResult.Key,
-                    querryResult.Key * querryResult.Count(),
-                    querryResult.Count()
+                    quertResult.Key,
+                    quertResult.Key * quertResult.Count(),
+                    quertResult.Count()
                 );
                 counter++;
             }
