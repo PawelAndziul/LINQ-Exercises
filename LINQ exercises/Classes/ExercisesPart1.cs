@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using LINQ_exercises.Models;
@@ -152,7 +153,7 @@ namespace LINQ_exercises.Classes
         public String[] Ex8(string startingChar, string endingChar)
         {
             //Write a program in C# Sharp to find the string which starts and ends with a specific character.
-            string[] cities = { "Rome", "London", "Nairobi", "California", "Zurich", "New Delhi", "Amsterdam", "Abu Dhabi", "Paris"};
+            string[] cities = { "Rome", "London", "Nairobi", "California", "Zurich", "New Delhi", "Amsterdam", "Abu Dhabi", "Paris" };
 
             var query =
                 from city in cities
@@ -181,6 +182,21 @@ namespace LINQ_exercises.Classes
                 from value in inputList
                 where value > memberValue
                 select value;
+
+            return query.ToArray();
+        }
+
+        public int[] Ex11(int[] inputArray, int topValuesCount)
+        {
+            // Write a program in C# Sharp to display the top n-th records.
+
+            if (topValuesCount < 1)
+                return new int[] { };
+
+            var query =
+                (from value in inputArray
+                 orderby value descending 
+                 select value).Take(topValuesCount);
 
             return query.ToArray();
         }

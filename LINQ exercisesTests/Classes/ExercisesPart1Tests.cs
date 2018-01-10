@@ -256,5 +256,18 @@ namespace LINQ_exercises.Classes.Tests
             Assert.IsTrue(actualResult.SequenceEqual(expectedResult));
 
         }
+
+        [TestMethod()]
+        public void Ex11Test()
+        {
+            int[] inputArray = { 9, 2, 3, 4, 5, 6, 7, 8, 1 };
+            int topValuesCount = 3;
+            int[] expectedResults = { 9, 8, 7 };
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            int[] actualResults = exercises.Ex11(inputArray, topValuesCount);
+
+            Assert.IsTrue(actualResults.SequenceEqual(expectedResults));
+        }
     }
 }
