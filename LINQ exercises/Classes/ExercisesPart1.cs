@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LINQ_exercises.Models;
 
 namespace LINQ_exercises.Classes
 {
@@ -12,9 +13,6 @@ namespace LINQ_exercises.Classes
         {
             // Write a program in C# Sharp to shows how the three parts of a query operation execute.
             // The numbers which produce the remainder 0 after divided by 2.
-
-            if (inputArray.Length == 0)
-                throw new Exception("Input array is empty");
 
             var result =
                 from value in inputArray
@@ -27,8 +25,6 @@ namespace LINQ_exercises.Classes
         public int[] Ex2(int[] inputArray)
         {
             //Write a program in C# Sharp to find the +ve numbers from a list of numbers using two where conditions in LINQ Query.
-            if (inputArray.Length == 0)
-                return null;
 
             var querry =
                 from value in inputArray
@@ -42,8 +38,6 @@ namespace LINQ_exercises.Classes
         public int[] Ex2(int[] inputArray, int maxValue)
         {
             //Write a program in C# Sharp to find the +ve numbers from a list of numbers using two where conditions in LINQ Query.
-            if (inputArray.Length == 0)
-                return null;
 
             var querry =
                 from value in inputArray
@@ -55,5 +49,25 @@ namespace LINQ_exercises.Classes
             return querry.ToArray();
         }
 
+        public DoubleInteger[] Ex3(int[] inputArray)
+        {
+            // Write a program in C# Sharp to find the number of an array and the square of each number.
+
+            var querry =
+                from value in inputArray
+                let squareValue = value * value
+                select new {value, squareValue};
+
+            DoubleInteger[] resultArray = new DoubleInteger[querry.Count()];
+
+            int counter = 0;
+            foreach (var querryResult in querry)
+            {
+                resultArray[counter] = new DoubleInteger(querryResult.value, querryResult.squareValue);
+                counter++;
+            }
+
+            return resultArray;
+        }
     }
 }

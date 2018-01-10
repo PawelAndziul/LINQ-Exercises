@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LINQ_exercises.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LINQ_exercises.Classes;
+using LINQ_exercises.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LINQ_exercises.Classes.Tests
 {
@@ -74,6 +73,29 @@ namespace LINQ_exercises.Classes.Tests
             int[] actualResult = exercises.Ex2(inputArray, 5);
 
             Assert.IsTrue(expectedResult.SequenceEqual(actualResult));
+        }
+
+        [TestMethod()]
+        public void Ex3Test()
+        {
+            int[] inputArray = { -2, -1, 0, 1, 2 };
+            DoubleInteger[] expectedResult = new DoubleInteger[inputArray.Length];
+
+            for (int i = 0; i < inputArray.Length; i++)
+            {
+                int valueInArray = inputArray[i];
+                expectedResult[i] = new DoubleInteger(valueInArray, valueInArray * valueInArray);
+            }
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+
+            DoubleInteger[] actualResult = exercises.Ex3(inputArray);
+
+            for (int i = 0; i < inputArray.Length; i++)
+            {
+                Assert.AreEqual(expectedResult[i].FirstValue, actualResult[i].FirstValue);
+                Assert.AreEqual(expectedResult[i].SecondValue, actualResult[i].SecondValue);
+            }
         }
     }
 }
