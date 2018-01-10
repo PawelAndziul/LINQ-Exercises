@@ -214,5 +214,13 @@ namespace LINQ_exercises.Classes
 
             return query.ToArray();
         }
+
+        public string Ex13(string[] inputArray)
+        {
+            // Write a program in C# Sharp to convert a string array to a string.
+            var resultString = String.Join(" ", inputArray.Select(s => s.ToString()).ToArray());
+
+            return resultString;
+        }
     }
 }
