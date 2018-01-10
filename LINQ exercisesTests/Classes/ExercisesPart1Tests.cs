@@ -55,7 +55,7 @@ namespace LINQ_exercises.Classes.Tests
             ExercisesPart1 exercises = new ExercisesPart1();
 
             int[] inputArray = { 0, -1, -2, -3, -4, -5, -6, -7, -8, -9 };
-            int[] expectedResult = {};
+            int[] expectedResult = { };
 
             int[] actualResult = exercises.Ex2(inputArray);
 
@@ -92,6 +92,25 @@ namespace LINQ_exercises.Classes.Tests
             DoubleInteger[] actualResult = exercises.Ex3(inputArray);
 
             for (int i = 0; i < inputArray.Length; i++)
+            {
+                Assert.AreEqual(expectedResult[i].FirstValue, actualResult[i].FirstValue);
+                Assert.AreEqual(expectedResult[i].SecondValue, actualResult[i].SecondValue);
+            }
+        }
+
+        [TestMethod()]
+        public void Ex4Test()
+        {
+            int[] inputArray = { 1, 1, 1, 2, 2, 3 };
+            DoubleInteger[] expectedResult = new DoubleInteger[3];
+            expectedResult[0] = new DoubleInteger(1, 3);
+            expectedResult[1] = new DoubleInteger(2, 2);
+            expectedResult[2] = new DoubleInteger(3, 1);
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            DoubleInteger[] actualResult = exercises.Ex4(inputArray);
+
+            for (int i = 0; i < expectedResult.Length; i++)
             {
                 Assert.AreEqual(expectedResult[i].FirstValue, actualResult[i].FirstValue);
                 Assert.AreEqual(expectedResult[i].SecondValue, actualResult[i].SecondValue);

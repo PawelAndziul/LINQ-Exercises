@@ -69,5 +69,26 @@ namespace LINQ_exercises.Classes
 
             return resultArray;
         }
+
+        public DoubleInteger[] Ex4(int[] inputArray)
+        {
+            //Write a program in C# Sharp to display the number and frequency of number from giving array.
+
+            var querry =
+                from value in inputArray
+                group value by value into count
+                select count;
+
+            DoubleInteger[] resultArray = new DoubleInteger[querry.Count()];
+            int counter = 0;
+
+            foreach (var querryResult in querry)
+            {
+                resultArray[counter] = new DoubleInteger(querryResult.Key, querryResult.Count());
+                counter++;
+            }
+
+            return resultArray;
+        }
     }
 }
