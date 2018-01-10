@@ -116,5 +116,23 @@ namespace LINQ_exercises.Classes.Tests
                 Assert.AreEqual(expectedResult[i].SecondValue, actualResult[i].SecondValue);
             }
         }
+
+        [TestMethod()]
+        public void Ex5Test()
+        {
+            string inputString = "apple";
+            Dictionary<String, int> expectedResult = new Dictionary<string, int>
+            {
+                { "a", 1 },
+                { "p", 2 },
+                { "l", 1 },
+                { "e", 1 }
+            };
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            Dictionary<String, int> actualResult = exercises.Ex5(inputString);
+
+            Assert.IsTrue(expectedResult.SequenceEqual(actualResult));
+        }
     }
 }

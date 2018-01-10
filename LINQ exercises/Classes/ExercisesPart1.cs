@@ -90,5 +90,23 @@ namespace LINQ_exercises.Classes
 
             return resultArray;
         }
+
+        public Dictionary<String, int> Ex5(string inputString)
+        {
+            // Write a program in C# Sharp to display the characters and frequency of character from giving string.
+
+            var querry =
+                from character in inputString
+                group character by character into count
+                select count;
+
+            Dictionary<String, int> resultDictionary = new Dictionary<string, int>();
+            foreach (var querryResult in querry)
+            {
+                resultDictionary.Add(querryResult.Key.ToString(), querryResult.Count());
+            }
+
+            return resultDictionary;
+        }
     }
 }
