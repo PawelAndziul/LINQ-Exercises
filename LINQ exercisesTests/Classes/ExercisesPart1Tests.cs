@@ -183,8 +183,8 @@ namespace LINQ_exercises.Classes.Tests
             int[] inputArray = { 1, 2, 2 };
 
             TripleInteger[] expectedResult = new TripleInteger[2];
-            expectedResult[0] = new TripleInteger(1,1,1);
-            expectedResult[1] = new TripleInteger(2,4,2);
+            expectedResult[0] = new TripleInteger(1, 1, 1);
+            expectedResult[1] = new TripleInteger(2, 4, 2);
 
             ExercisesPart1 exercises = new ExercisesPart1();
             TripleInteger[] actualResult = exercises.Ex7(inputArray);
@@ -195,6 +195,32 @@ namespace LINQ_exercises.Classes.Tests
                 Assert.AreEqual(actualResult[i].SecondValue, expectedResult[i].SecondValue);
                 Assert.AreEqual(actualResult[i].ThirdValue, expectedResult[i].ThirdValue);
             }
+        }
+
+        [TestMethod()]
+        public void Ex8Test()
+        {
+            string startingChar = "P";
+            string endingChar = "S";
+            string[] expectedResult = { "Paris" };
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            string[] actualResult = exercises.Ex8(startingChar, endingChar);
+
+            Assert.IsTrue(actualResult.SequenceEqual(expectedResult));
+        }
+
+        [TestMethod()]
+        public void Ex8Test_MultipleResults()
+        {
+            string startingChar = "N";
+            string endingChar = "i";
+            string[] expectedResult = { "Nairobi", "New Delhi" };
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            string[] actualResult = exercises.Ex8(startingChar, endingChar);
+
+            Assert.IsTrue(actualResult.SequenceEqual(expectedResult));
         }
     }
 }

@@ -148,5 +148,19 @@ namespace LINQ_exercises.Classes
 
             return resultArray;
         }
+
+        public String[] Ex8(string startingChar, string endingChar)
+        {
+            //Write a program in C# Sharp to find the string which starts and ends with a specific character.
+            string[] cities = { "Rome", "London", "Nairobi", "California", "Zurich", "New Delhi", "Amsterdam", "Abu Dhabi", "Paris"};
+
+            var query =
+                from city in cities
+                where city.StartsWith(startingChar.ToUpper())
+                where city.EndsWith(endingChar.ToLower())
+                select city;
+
+            return query.ToArray();
+        }
     }
 }
