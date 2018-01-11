@@ -316,7 +316,7 @@ namespace LINQ_exercises.Classes.Tests
             expectedResults.Add("xml", 1);
 
             ExercisesPart1 exercises = new ExercisesPart1();
-            Dictionary<string, int> actualResults = exercises.Ex14(inputArray);
+            Dictionary<string, int> actualResults = exercises.Ex15(inputArray);
 
             Assert.IsTrue(actualResults.SequenceEqual(expectedResults));
 
