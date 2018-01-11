@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using LINQ_exercises.Classes;
 using LINQ_exercises.Models;
@@ -319,6 +320,30 @@ namespace LINQ_exercises.Classes.Tests
 
             Assert.IsTrue(actualResults.SequenceEqual(expectedResults));
 
+        }
+
+        [TestMethod()]
+        public void Ex16Test()
+        {
+            string inputString = "./Resources/Ex16File.txt";
+            long expectedResult = new FileInfo(inputString).Length;
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            long actualResult = exercises.Ex16(inputString);
+
+            Assert.AreEqual(actualResult, expectedResult);
+        }
+
+        [TestMethod()]
+        public void Ex16Test_NoFileSpecified()
+        {
+            string inputString = "";
+            long expectedResult = -1;
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            long actualResult = exercises.Ex16(inputString);
+
+            Assert.AreEqual(actualResult, expectedResult);
         }
     }
 }

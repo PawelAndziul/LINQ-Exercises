@@ -241,5 +241,25 @@ namespace LINQ_exercises.Classes
             }
             return resultDictionary;
         }
+
+        public long Ex16(string filePath)
+        {
+            // Write a program in C# Sharp to Calculate Size of File using LINQ.
+
+            // LINQ is not helpful in this exercise
+            // using plain C# instead
+            FileInfo fileInfo;
+
+            try
+            {
+                fileInfo = new FileInfo(filePath);
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+
+            return fileInfo.Length;
+        }
     }
 }
