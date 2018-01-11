@@ -225,7 +225,28 @@ namespace LINQ_exercises.Classes
             return resultString;
         }
 
-        public Dictionary<string, int> Ex14(string[] inputArray)
+        public List<Student> Ex14(List<Student> inputList, int gradePoint)
+        {
+            // Write a program in C# Sharp to find the n-th Maximum grade point achieved by the students from the list of students.
+            var query =
+                (from student in inputList
+                group student by student.Points into points
+                orderby points.Key descending 
+                select points).ToList();
+
+            if (gradePoint < 0 ||
+                gradePoint > query.Count)
+                return new List<Student>();
+
+            var query2 =
+                (from queryRow in query
+                where queryRow.Key == query[gradePoint-1].Key
+                select queryRow).ToList();
+
+            return inputList.FindAll(student => student.Points == query2[0].Key); ;
+        }
+
+        public Dictionary<string, int> Ex15(string[] inputArray)
         {
             //Write a program in C# Program to Count File Extensions and Group it using LINQ.
             var query =

@@ -296,6 +296,84 @@ namespace LINQ_exercises.Classes.Tests
         }
 
         [TestMethod()]
+        public void Ex14Test()
+        {
+            List<Student> inputList = new List<Student>();
+            inputList.Add(new Student(0, "Jon", 10));
+            inputList.Add(new Student(1, "Timmy", 9));
+            inputList.Add(new Student(2, "Jack", 9));
+            inputList.Add(new Student(3, "Chance", 8));
+
+            int gradePoint = 2;
+
+            List<Student> expectedResults = new List<Student>();
+            expectedResults.Add(new Student(1, "Timmy", 9));
+            expectedResults.Add(new Student(2, "Jack", 9));
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            List<Student> actualResults = exercises.Ex14(inputList, gradePoint);
+
+            int count = actualResults.Count > expectedResults.Count ? actualResults.Count : expectedResults.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                Assert.AreEqual(actualResults[i].Id, expectedResults[i].Id);
+                Assert.AreEqual(actualResults[i].Name, expectedResults[i].Name);
+                Assert.AreEqual(actualResults[i].Points, expectedResults[i].Points);
+            }
+        }
+
+        [TestMethod()]
+        public void Ex14Test_NoInputList()
+        {
+            List<Student> inputList = new List<Student>();
+
+            int gradePoint = 2;
+
+            List<Student> expectedResults = new List<Student>();
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            List<Student> actualResults = exercises.Ex14(inputList, gradePoint);
+
+            for (int i = 0; i < expectedResults.Count; i++)
+            {
+                Assert.AreEqual(actualResults[i].Id, expectedResults[i].Id);
+                Assert.AreEqual(actualResults[i].Name, expectedResults[i].Name);
+                Assert.AreEqual(actualResults[i].Points, expectedResults[i].Points);
+            }
+        }
+
+        [TestMethod()]
+        public void Ex14Test_WrongGradePoint()
+        {
+            List<Student> inputList = new List<Student>();
+            inputList.Add(new Student(0, "Jon", 10));
+            inputList.Add(new Student(1, "Timmy", 9));
+            inputList.Add(new Student(2, "Jack", 9));
+            inputList.Add(new Student(3, "Chance", 8));
+
+            int gradePoint = -1;
+
+            List<Student> expectedResults = new List<Student>();
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            List<Student> actualResults = exercises.Ex14(inputList, gradePoint);
+
+            int count;
+            if (actualResults.Count > expectedResults.Count)
+                count = actualResults.Count;
+            else
+                count = expectedResults.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                Assert.AreEqual(actualResults[i].Id, expectedResults[i].Id);
+                Assert.AreEqual(actualResults[i].Name, expectedResults[i].Name);
+                Assert.AreEqual(actualResults[i].Points, expectedResults[i].Points);
+            }
+        }
+
+        [TestMethod()]
         public void Ex15Test()
         {
             string[] inputArray = {"aaa.frx",
@@ -345,5 +423,6 @@ namespace LINQ_exercises.Classes.Tests
 
             Assert.AreEqual(actualResult, expectedResult);
         }
+
     }
 }
