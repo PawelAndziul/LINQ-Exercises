@@ -285,13 +285,40 @@ namespace LINQ_exercises.Classes.Tests
         [TestMethod()]
         public void Ex13Test()
         {
-            string[] inputArray = {"It", "works"};
+            string[] inputArray = { "It", "works" };
             string expectedResult = "It works";
 
             ExercisesPart1 exercises = new ExercisesPart1();
             string actualResult = exercises.Ex13(inputArray);
 
             Assert.AreEqual(actualResult, expectedResult);
+        }
+
+        [TestMethod()]
+        public void Ex14Test()
+        {
+            string[] inputArray = {"aaa.frx",
+                "bbb.TXT",
+                "xyz.dbf",
+                "abc.pdf",
+                "aaaa.PDF",
+                "xyz.frt",
+                "abc.xml",
+                "ccc.txt",
+                "zzz.txt" };
+            Dictionary<string, int> expectedResults = new Dictionary<string, int>();
+            expectedResults.Add("frx", 1);
+            expectedResults.Add("txt", 3);
+            expectedResults.Add("dbf", 1);
+            expectedResults.Add("pdf", 2);
+            expectedResults.Add("frt", 1);
+            expectedResults.Add("xml", 1);
+
+            ExercisesPart1 exercises = new ExercisesPart1();
+            Dictionary<string, int> actualResults = exercises.Ex14(inputArray);
+
+            Assert.IsTrue(actualResults.SequenceEqual(expectedResults));
+
         }
     }
 }

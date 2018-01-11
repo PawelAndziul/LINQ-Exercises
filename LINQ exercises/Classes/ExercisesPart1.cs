@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -221,6 +223,23 @@ namespace LINQ_exercises.Classes
             var resultString = String.Join(" ", inputArray.Select(s => s.ToString()).ToArray());
 
             return resultString;
+        }
+
+        public Dictionary<string, int> Ex14(string[] inputArray)
+        {
+            //Write a program in C# Program to Count File Extensions and Group it using LINQ.
+            var query =
+                from file in inputArray
+                let extension = Path.GetExtension(file)?.ToLower().TrimStart('.')
+                group extension by extension into count
+                select count;
+
+            Dictionary<string, int> resultDictionary = new Dictionary<string, int>();
+            foreach (var queryResult in query)
+            {
+                resultDictionary.Add(queryResult.Key, queryResult.Count());
+            }
+            return resultDictionary;
         }
     }
 }
