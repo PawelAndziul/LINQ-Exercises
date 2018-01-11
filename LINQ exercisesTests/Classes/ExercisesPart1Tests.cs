@@ -296,7 +296,7 @@ namespace LINQ_exercises.Classes.Tests
         }
 
         [TestMethod()]
-        public void Ex14Test()
+        public void Ex15Test()
         {
             string[] inputArray = {"aaa.frx",
                 "bbb.TXT",
